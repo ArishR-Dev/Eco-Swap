@@ -1,0 +1,77 @@
+# -----------------------------
+# Python / backend
+# -----------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+.Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+venv/
+env/
+.venv/
+backend/venv/
+backend/venv*/
+
+# -----------------------------
+# Node / frontend
+# -----------------------------
+node_modules/
+frontend/node_modules/
+
+dist/
+build/
+frontend/dist/
+frontend/dist-ssr/
+frontend/.lastbuild
+
+.npm/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# -----------------------------
+# Environment files (keep examples)
+# -----------------------------
+.env
+.env.*
+frontend/.env
+frontend/.env.*
+backend/.env
+backend/.env.*
+!.env.example
+!backend/.env.example
+!frontend/.env.example
+
+# Backend runtime uploads (generated)
+backend/uploads/
+
+# -----------------------------
+# Test and coverage outputs
+# -----------------------------
+coverage/
+*.coverage
+htmlcov/
+
+# -----------------------------
+# IDE / OS files
+# -----------------------------
+.vscode/
+pyrightconfig.json
+.idea/
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Project specific
+unwanted/
+SS/
+# -----------------------------
