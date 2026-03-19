@@ -1,0 +1,41 @@
+{% extends "emails/base.html" %}
+
+{% block title %}{{ subject_line }} - EcoSwap{% endblock %}
+
+{% block content %}
+<p style="margin: 0 0 16px 0; color: #1e293b; font-size: 16px; line-height: 1.6;">Hi {{ user_name }},</p>
+
+{% if approved %}
+<!-- Approved -->
+<p style="margin: 0 0 24px 0; color: #475569; font-size: 15px; line-height: 1.6;">Great news! Your EcoSwap {{ role_label }} account has been <strong style="color: #0d9488;">approved</strong>.</p>
+
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #f0fdfa; border-radius: 8px; border: 1px solid #99f6e4; margin-bottom: 24px;">
+  <tr>
+    <td style="padding: 20px;">
+      <p style="margin: 0; color: #0f766e; font-size: 15px; line-height: 1.6;">You can now log in and {% if role_label == 'Collector' %}start accepting pickup requests{% else %}receive e-waste for recycling{% endif %}.</p>
+    </td>
+  </tr>
+</table>
+{% else %}
+<!-- Rejected -->
+<p style="margin: 0 0 24px 0; color: #475569; font-size: 15px; line-height: 1.6;">We&apos;ve reviewed your EcoSwap {{ role_label }} application.</p>
+
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #fef2f2; border-radius: 8px; border: 1px solid #fecaca; margin-bottom: 24px;">
+  <tr>
+    <td style="padding: 20px;">
+      <p style="margin: 0; color: #991b1b; font-size: 15px; line-height: 1.6;">Unfortunately, your account was not approved at this time. If you have questions, please contact our support team.</p>
+    </td>
+  </tr>
+</table>
+{% endif %}
+
+{% if login_url %}
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td align="center" style="padding: 8px 0;">
+      <a href="{{ login_url }}" style="display: inline-block; padding: 14px 28px; background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%); color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; border-radius: 8px;">Log in to EcoSwap</a>
+    </td>
+  </tr>
+</table>
+{% endif %}
+{% endblock %}

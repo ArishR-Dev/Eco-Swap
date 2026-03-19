@@ -1,0 +1,40 @@
+{% extends "emails/base.html" %}
+
+{% block title %}Pickup Status Update - EcoSwap{% endblock %}
+
+{% block content %}
+<p style="margin: 0 0 16px 0; color: #1e293b; font-size: 16px; line-height: 1.6;">Hi {{ user_name }},</p>
+
+<p style="margin: 0 0 24px 0; color: #475569; font-size: 15px; line-height: 1.6;">Your pickup request <strong>{{ pickup_id }}</strong> has been updated.</p>
+
+<!-- Status badge -->
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 24px;">
+  <tr>
+    <td>
+      <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="background-color: {{ status_bg_color }}; border-radius: 8px; border: 1px solid {{ status_border_color }};">
+        <tr>
+          <td style="padding: 16px 20px;">
+            <p style="margin: 0 0 4px 0; color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Status</p>
+            <p style="margin: 0; color: {{ status_text_color }}; font-size: 18px; font-weight: 700;">{{ status_display }}</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{% if status_message %}
+<p style="margin: 0 0 24px 0; color: #475569; font-size: 15px; line-height: 1.6;">{{ status_message }}</p>
+{% endif %}
+
+<p style="margin: 0 0 8px 0; color: #64748b; font-size: 14px;">Pickup address: {{ address }}</p>
+{% if scheduled_date %}<p style="margin: 0 0 24px 0; color: #64748b; font-size: 14px;">Scheduled: {{ scheduled_date }}{% if time_slot %} ({{ time_slot }}){% endif %}</p>{% endif %}
+
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td align="center" style="padding: 8px 0;">
+      <a href="{{ track_url }}" style="display: inline-block; padding: 14px 28px; background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%); color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; border-radius: 8px;">View Pickup Details</a>
+    </td>
+  </tr>
+</table>
+{% endblock %}

@@ -1,0 +1,30 @@
+# EcoSwap Backend - Python Dependencies
+# Install: pip install -r requirements.txt
+
+# Flask core
+Flask==3.0.0
+
+# Flask extensions
+Flask-Cors==4.0.0
+Flask-JWT-Extended==4.6.0
+Flask-SQLAlchemy==3.1.1
+Flask-Migrate==4.0.5
+Flask-Bcrypt==1.0.1
+
+# Database
+mysql-connector-python==8.3.0
+
+# Auth & security
+# (bcrypt and PyJWT are installed as transitive deps of Flask-Bcrypt / Flask-JWT-Extended)
+
+# Config & env
+python-dotenv==1.0.1
+
+# PDF generation (certificates)
+reportlab==4.4.10
+Pillow==12.1.1
+
+# (alembic and mako are installed as transitive deps of Flask-Migrate)
+
+
+
